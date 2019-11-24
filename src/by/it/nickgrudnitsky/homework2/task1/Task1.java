@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Task1 {
     public static void main(String[] args) {
-        printHeadsAndTails();
+        printHeadsAndTails(countHeads());
     }
 
 
@@ -27,8 +27,7 @@ public class Task1 {
         return heads;
     }
 
-    private static void printHeadsAndTails() {
-        int heads = countHeads();
+    private static void printHeadsAndTails(int heads) {
         System.out.printf("You've got %d heads and %d tails.", heads, 1000 - heads);
     }
 }
