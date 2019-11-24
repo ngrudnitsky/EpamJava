@@ -17,7 +17,7 @@ public class Task2_6 {
     //Разработать наиболее эффективные алгоритмы и написать код для решения следующих задач:
     //- найти количество различных цифр у заданного натурального числа.
 
-    private static int findNumberOfDifferentDigits(int number){
+    private static int findNumberOfDifferentDigits(int number) {
         Set<Integer> differentDigits = new HashSet<>();
         differentDigits.add(number % 10);
         if (number / 10 == 0) {
@@ -27,7 +27,8 @@ public class Task2_6 {
         return differentDigits.size();
     }
 
-    private static void parseANumberRecursively(int number, Set<Integer> differentDigits){
+    //если число деситизначное и больше, то рекурсивно обходим его и складываем все найденные числа в сет
+    private static void parseANumberRecursively(int number, Set<Integer> differentDigits) {
         if (number / 10 == 0) {
             differentDigits.add(number);
             return;

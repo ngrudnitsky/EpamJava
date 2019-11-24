@@ -20,9 +20,9 @@ public class Task2_2 {
 
         parseANumberRecursively(number, digits);
         for (int i = 0; i < digits.size(); i++) {
-            if (digits.getFirst() == digits.getLast()) {
+            if (digits.getFirst().equals(digits.getLast())) {
                 digits.removeFirst();
-                if (digits.size()!=0){
+                if (digits.size() != 0) {
                     digits.removeLast();
                 }
             } else {
@@ -39,8 +39,8 @@ public class Task2_2 {
         }
     }
 
-    private static void printIfTheNumberIsAPalindrome( int number, boolean flag) {
-        if (flag){
+    private static void printIfTheNumberIsAPalindrome(int number, boolean flag) {
+        if (flag) {
             System.out.printf("Number %d is a palindrome.", number);
         } else {
             System.out.printf("Number %d is not a palindrome.", number);

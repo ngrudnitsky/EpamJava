@@ -40,7 +40,7 @@ public class Task2_4 {
         parseANumberRecursively(number, simpleNumber, simpleDividers);
     }
 
-    //рекурсиновно ищем следующий простой делитель, используя метод, который написали в пердыдущем задании
+    //рекурсиновно ищем следующий простой делитель, используя метод, который написали в предыдущем задании
     private static int nextSimpleNumber(int simpleNumber) {
         if (checkIfNumberIsSimple(++simpleNumber)) {
             return simpleNumber;

@@ -20,15 +20,15 @@ public class Task3 {
         int summ = 1;
         int divider = 2;
 
-        while (divider <= Math.sqrt(number)){
-            if (number % divider == 0){
-                summ = summ + divider + number/divider;
+        while (divider <= Math.sqrt(number)) {
+            if (number % divider == 0) {
+                summ = summ + divider + number / divider;
 
             }
             divider++;
         }
 
-        return summ==number;
+        return summ == number;
     }
 
 
