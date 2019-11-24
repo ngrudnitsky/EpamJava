@@ -4,6 +4,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DataInput {
+
+    public static int[] enterTwoNaturalNumbers() {
+        int[] twoNaturalNumbers = new int[2];
+        for (int i = 0; i < 2; i++) {
+            twoNaturalNumbers[i] = enterNaturalNumber();
+        }
+        return twoNaturalNumbers;
+    }
+
     public static int enterNaturalNumber() {
         Scanner scanner = new Scanner(System.in);
         int number;
@@ -22,6 +31,5 @@ public class DataInput {
 
     public static void printIntroduction() {
         System.out.println("Enter natural number.");
-
     }
 }
