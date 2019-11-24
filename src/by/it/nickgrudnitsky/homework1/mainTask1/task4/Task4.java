@@ -40,9 +40,13 @@ public class Task4 {
         int thirdDigit = (number - firstDigit * 1000 - secondDigit * 100) / 10;
         int fourthDigit = (number - firstDigit * 1000 - secondDigit * 100 - thirdDigit * 10);
 
-        if (firstDigit < secondDigit && secondDigit < thirdDigit && thirdDigit < fourthDigit) return 1;
+        if (firstDigit < secondDigit && secondDigit < thirdDigit && thirdDigit < fourthDigit) {
+            return 1;
+        }
 
-        if (firstDigit > secondDigit && secondDigit > thirdDigit && thirdDigit > fourthDigit) return -1;
+        if (firstDigit > secondDigit && secondDigit > thirdDigit && thirdDigit > fourthDigit) {
+            return -1;
+        }
 
         return 0;
     }

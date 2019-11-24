@@ -20,18 +20,18 @@ public class Task5 {
             return;
         }
 
-        System.out.printf("Arithmetic mean of %d is %5.3f and geometric mean is %5.3f", number, arithmeticMean(number), geometricMean(number));
+        System.out.printf("Arithmetic mean of %d is %5.3f and geometric mean is %5.3f", number, toArithmeticMean(number), toGeometricMean(number));
     }
 
 
-    private static float arithmeticMean(int number) {
+    private static float toArithmeticMean(int number) {
         float sumOfDigits = number / 100_000 + number % 100_000 / 10_000 + number % 10_000 / 1_000 + number % 1_000 / 100
                 + number % 100 / 10 + number % 10;
 
         return sumOfDigits / 6;
     }
 
-    private static double geometricMean(int number) {
+    private static double toGeometricMean(int number) {
         float mulOfDigits = (number / 100_000) * (number % 100_000 / 10_000) * (number % 10_000 / 1_000) * (number % 1_000 / 100)
                 * (number % 100 / 10) * (number % 10);
 

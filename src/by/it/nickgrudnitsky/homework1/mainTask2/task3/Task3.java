@@ -25,13 +25,19 @@ public class Task3 {
     }
 
     private static boolean isVowel1(String symbol) {
-        return symbol.matches("[aeuo]");
+        return symbol.matches("[aeuioAEUIO]");
     }
 
     private static boolean isVowel2(String symbol) {
         if (symbol.equals("e")) return true;
         if (symbol.equals("u")) return true;
         if (symbol.equals("o")) return true;
+        if (symbol.equals("i")) return true;
+        if (symbol.equals("A")) return true;
+        if (symbol.equals("E")) return true;
+        if (symbol.equals("U")) return true;
+        if (symbol.equals("I")) return true;
+        if (symbol.equals("O")) return true;
         return symbol.equals("a");
     }
 
@@ -41,6 +47,12 @@ public class Task3 {
             case "u":
             case "o":
             case "a":
+            case "O":
+            case "i":
+            case "A":
+            case "E":
+            case "I":
+            case "U":
                 return true;
             default:
                 return false;
@@ -54,6 +66,12 @@ public class Task3 {
             if (symbol == 'e') return true;
             if (symbol == 'u') return true;
             if (symbol == 'o') return true;
+            if (symbol == 'i') return true;
+            if (symbol == 'I') return true;
+            if (symbol == 'A') return true;
+            if (symbol == 'E') return true;
+            if (symbol == 'U') return true;
+            if (symbol == 'O') return true;
             return symbol == 'a';
         }
         return false;

@@ -19,8 +19,10 @@ public class Task2 {
             return;
         }
 
-        System.out.printf("The dragon has %d heads and %d eyes", countHeads(age), countHeads(age)*2);
+        System.out.printf("The dragon has %d heads and %d eyes.", countHeads(age), countHeads(age)*2);
     }
+
+    // TODO: 2019-11-20 подсчет голов в отдельный метод
 
     private static int countHeads(int age) {
         if (age - 200 <= 0) {
@@ -30,6 +32,6 @@ public class Task2 {
                 return (age - 200) * 2 + 200 * 3 + 3;
             }
         }
-        return (age - 300 * 1) + 200 * 3 + 100 * 3 + 3;
+        return (age - 300) + 200 * 3 + 100 * 3 + 3;
     }
 }

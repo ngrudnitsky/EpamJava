@@ -4,7 +4,7 @@ public class Dot {
     private float x;
     private float y;
 
-    public float getX() {
+    float getX() {
         return x;
     }
 
@@ -12,7 +12,7 @@ public class Dot {
         this.x = x;
     }
 
-    public float getY() {
+    float getY() {
         return y;
     }
 
@@ -20,7 +20,7 @@ public class Dot {
         this.y = y;
     }
 
-    public Dot(float x, float y) {
+    Dot(float x, float y) {
         this.x = x;
         this.y = y;
     }
