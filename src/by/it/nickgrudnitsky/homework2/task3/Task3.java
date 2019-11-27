@@ -20,6 +20,10 @@ public class Task3 {
         int summ = 1;
         int divider = 2;
 
+        if (number == 1){
+            return false;
+        }
+
         while (divider <= Math.sqrt(number)) {
             if (number % divider == 0) {
                 summ = summ + divider + number / divider;

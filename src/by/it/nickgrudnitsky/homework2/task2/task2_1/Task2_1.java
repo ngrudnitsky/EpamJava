@@ -23,7 +23,7 @@ public class Task2_1 {
             anotherDigit = findMaxDigit(remainderOfNumber);
         }
 
-        if (firstDigit == 9 || anotherDigit == 9) {
+        if (anotherDigit == 9 || firstDigit == 9) {
             return 9;
         } else if (firstDigit > anotherDigit) {
             return firstDigit;
