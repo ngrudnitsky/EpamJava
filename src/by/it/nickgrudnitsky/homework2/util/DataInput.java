@@ -5,14 +5,6 @@ import java.util.Scanner;
 
 public class DataInput {
 
-    public static int[] enterTwoNaturalNumbers() {
-        int[] twoNaturalNumbers = new int[2];
-        for (int i = 0; i < 2; i++) {
-            twoNaturalNumbers[i] = enterNaturalNumber();
-        }
-        return twoNaturalNumbers;
-    }
-
     public static int enterNaturalNumber() {
         Scanner scanner = new Scanner(System.in);
         int number;

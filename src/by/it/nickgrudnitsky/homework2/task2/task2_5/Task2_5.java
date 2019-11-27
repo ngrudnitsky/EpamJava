@@ -7,8 +7,9 @@ public class Task2_5 {
         printIntroduction();
         int numberOne = enterNaturalNumber();
         int numberTwo = enterNaturalNumber();
-        System.out.printf("Greatest common divisor of numbers %d and %d is %d.", numberOne, numberTwo,
-                findGreatestCommonDivisor(numberOne, numberTwo));
+        printResult(numberOne, numberTwo, findGreatestCommonDivisor(numberOne, numberTwo),
+                findcLeastCommonMultiple(numberOne, numberTwo));
+
 
     }
 
@@ -22,8 +23,18 @@ public class Task2_5 {
         return findGreatestCommonDivisor(numberTwo, numberOne % numberTwo);
     }
 
+    private static int findcLeastCommonMultiple(int a, int b) {
+        return a / findGreatestCommonDivisor(a, b) * b;
+    }
+
     private static void printIntroduction() {
         System.out.println("Enter two natural number.");
+
+    }
+
+    private static void printResult(int numberOne, int numberTwo, int greatestCommonDivisor, int commonMultiple) {
+        System.out.printf("Greatest common divisor of numbers %d and %d is %d and least common multiple is %d.",
+                numberOne, numberTwo, greatestCommonDivisor, commonMultiple);
 
     }
 }

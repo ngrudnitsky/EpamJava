@@ -62,7 +62,7 @@ public class Task4 {
             return;
         }
         System.out.println("Friendly numbers are:");
-        for (int i = 0; i < friendlyNumbers.size() / 2; i++) {
+        for (int i = 0; i < friendlyNumbers.size() / 2; i+=2) {
             System.out.printf("%d and %d.\n", friendlyNumbers.get(i), friendlyNumbers.get(i + 1));
         }
     }

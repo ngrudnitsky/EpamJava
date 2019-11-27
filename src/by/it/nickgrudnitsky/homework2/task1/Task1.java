@@ -18,12 +18,14 @@ public class Task1 {
 
     private static int countHeads() {
         int heads = 0;
+
         for (int i = 0; i < 1000; i++) {
             int coin = flipACoin();
             if (coin == 1) {
                 heads++;
             }
         }
+
         return heads;
     }
 
