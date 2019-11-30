@@ -16,6 +16,8 @@ public class Task3 {
     //который меньше любого из своих соседей; локальный максимум – это элемент,
     //который больше любого из своих соседей);
 
+
+
     private static double findLocalMinimum(double[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
