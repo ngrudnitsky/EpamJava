@@ -5,7 +5,6 @@ public class CellularPlan extends Plan {
     private int minutesOnCall;
     private double outgoingCallsPrice;
     private double roamingCallPrice;
-    private double volumeOfInternetTraffic;
     private double outgoingInternetPrice;
     private double mobileHotspot;
     private double mtsTvTraffic;
@@ -33,14 +32,6 @@ public class CellularPlan extends Plan {
 
     public void setRoamingCallPrice(double roamingCallPrice) {
         this.roamingCallPrice = roamingCallPrice;
-    }
-
-    public double getVolumeOfInternetTraffic() {
-        return volumeOfInternetTraffic;
-    }
-
-    public void setVolumeOfInternetTraffic(double volumeOfInternetTraffic) {
-        this.volumeOfInternetTraffic = volumeOfInternetTraffic;
     }
 
     public double getOutgoingInternetPrice() {
@@ -77,14 +68,20 @@ public class CellularPlan extends Plan {
 
     @Override
     public String toString() {
-        return  this.getName() +
-                "\nМинут на звонки " + minutesOnCall +
-                "\nСтоимость звонка " + outgoingCallsPrice +
-                "\nСтоимость роуминга " + roamingCallPrice +
-                "\nВключено интернет трафика " + volumeOfInternetTraffic +
-                "\nСтоимость звонка сверх трафика " + outgoingInternetPrice +
-                "\nИнтернета в режиме модема " + mobileHotspot +
-                "\nТрафика на мтс тв " + mtsTvTraffic +
-                "\nsms " + sms +"\n";
+        return this.getName() +
+//                "\nМинут на звонки " + minutesOnCall +
+//                "\nСтоимость звонка " + outgoingCallsPrice +
+//                "\nСтоимость роуминга " + roamingCallPrice +
+                "\nВключено интернет трафика " + this.getVolumeOfInternetTraffic() +
+//                "\nСтоимость звонка сверх трафика " + outgoingInternetPrice +
+//                "\nИнтернета в режиме модема " + mobileHotspot +
+//                "\nТрафика на мтс тв " + mtsTvTraffic +
+//                "\nsms " + sms +
+                "\nплата " + this.getSubscriptionFee()+ "\n";
+    }
+
+    @Override
+    public int compareTo(Plan o) {  //сортировка по умолчанию (в алфавитном порядке)
+        return this.getName().compareTo(o.getName());
     }
 }

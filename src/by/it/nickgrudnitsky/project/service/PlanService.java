@@ -12,14 +12,6 @@ public class PlanService{
 
     private PlanRepository planRepository = new PlanRepository();
 
-    public static void main(String[] args) {
-        PlanService planService = new PlanService();
-        System.out.println(planService.readPlans(new File(System.getProperty("user.dir"),
-                "src/by/it/nickgrudnitsky/project/resources/plansList.txt")));
-        System.out.println("Всего клиентов " + planService.countSubscribers());
-
-    }
-
     //Чтени входных данных из файла
     //Метод читает файл и создает планы в репозитории
     private List<Plan> readPlans(File file) {
@@ -38,22 +30,25 @@ public class PlanService{
     }
 
     private List<Plan> getAll() {
-        return null;
+        return planRepository.getPlans();
     }
 
-    private List<Plan> sortBySubscriptionFee() {
-        return null;
+    private List<Plan> sortBySubscriptionFee() {  //сортировка тарифов по абонентской плате
+        List<Plan> plans = planRepository.getPlans();
+        plans.sort(new SubscriptionFeeComparator());
+        return plans;
     }
 
-    private List<Plan> sortByMinutesOnCall() {
-        return null;
+    private List<Plan> sortByInternetTraffic() { //сортировка тарифов по включенному интернет трафику
+        List<Plan> plans = planRepository.getPlans();
+        plans.sort(new InternetTrafficComparator().reversed());
+        return plans;
     }
 
-    private List<Plan> sortByInternetTraffic() {
-        return null;
+    private List<Plan> sortByInternetTrafficAndFee() { //сортировка тарифов по включенному интернет трафику
+        List<Plan> plans = planRepository.getPlans();  //и абонентской плате
+        plans.sort(new InternetTrafficComparator().thenComparing(new SubscriptionFeeComparator()));
+        return plans;
     }
 
-    private List<Plan> sortByRoumingPrice() {
-        return null;
-    }
 }

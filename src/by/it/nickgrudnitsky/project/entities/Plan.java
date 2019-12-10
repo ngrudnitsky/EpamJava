@@ -1,16 +1,24 @@
 package by.it.nickgrudnitsky.project.entities;
 
 
-
-public abstract class Plan {
+public abstract class Plan implements Comparable<Plan> {
 
     private String name;
     private double connectionPrice;
     private double subscriptionFee;
     private int connectedSubscribers;
+    private double volumeOfInternetTraffic;
 
-    public String getName() {
+    String getName() {
         return name;
+    }
+
+    public double getVolumeOfInternetTraffic() {
+        return volumeOfInternetTraffic;
+    }
+
+    public void setVolumeOfInternetTraffic(double volumeOfInternetTraffic) {
+        this.volumeOfInternetTraffic = volumeOfInternetTraffic;
     }
 
     public void setName(String name) {
