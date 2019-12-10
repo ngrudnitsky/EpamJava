@@ -1,23 +1,59 @@
 package by.it.nickgrudnitsky.project.service;
 
+import by.it.nickgrudnitsky.project.data.PlanRepository;
 import by.it.nickgrudnitsky.project.entities.Plan;
 
-import java.io.File;
+import java.io.*;
 import java.util.List;
 
-public interface PlanService {
+import static by.it.nickgrudnitsky.project.service.Parser.readPlansFromFile;
 
-    void readPlans(File file);
+public class PlanService{
 
-    int countSubscribers();
+    private PlanRepository planRepository = new PlanRepository();
 
-    List<Plan> getAll();
+    public static void main(String[] args) {
+        PlanService planService = new PlanService();
+        System.out.println(planService.readPlans(new File(System.getProperty("user.dir"),
+                "src/by/it/nickgrudnitsky/project/resources/plansList.txt")));
+        System.out.println("Всего клиентов " + planService.countSubscribers());
 
-    List<Plan> sortBySubscriptionFee();
+    }
 
-    List<Plan> sortByMinutesOnCall();
+    //Чтени входных данных из файла
+    //Метод читает файл и создает планы в репозитории
+    private List<Plan> readPlans(File file) {
+        return planRepository.createPlans(readPlansFromFile(file));
+    }
 
-    List<Plan> sortByInternetTraffic();
+    //Подсчет общего числа клиентов (условие задания)
+    private int countSubscribers() {
 
-    List<Plan> sortByRoumingPrice();
+        int subscribersAmount = 0;
+
+        for (Plan plan : planRepository.getPlans()) {
+            subscribersAmount += plan.getConnectedSubscribers();
+        }
+        return subscribersAmount;
+    }
+
+    private List<Plan> getAll() {
+        return null;
+    }
+
+    private List<Plan> sortBySubscriptionFee() {
+        return null;
+    }
+
+    private List<Plan> sortByMinutesOnCall() {
+        return null;
+    }
+
+    private List<Plan> sortByInternetTraffic() {
+        return null;
+    }
+
+    private List<Plan> sortByRoumingPrice() {
+        return null;
+    }
 }

@@ -4,11 +4,12 @@ public class CellularPlan extends Plan {
 
     private int minutesOnCall;
     private double outgoingCallsPrice;
-    private double roumingCallPrice;
+    private double roamingCallPrice;
     private double volumeOfInternetTraffic;
-    private double outgoingInterntPrice;
+    private double outgoingInternetPrice;
     private double mobileHotspot;
     private double mtsTvTraffic;
+    private double sms;
 
     public int getMinutesOnCall() {
         return minutesOnCall;
@@ -26,12 +27,12 @@ public class CellularPlan extends Plan {
         this.outgoingCallsPrice = outgoingCallsPrice;
     }
 
-    public double getRoumingCallPrice() {
-        return roumingCallPrice;
+    public double getRoamingCallPrice() {
+        return roamingCallPrice;
     }
 
-    public void setRoumingCallPrice(double roumingCallPrice) {
-        this.roumingCallPrice = roumingCallPrice;
+    public void setRoamingCallPrice(double roamingCallPrice) {
+        this.roamingCallPrice = roamingCallPrice;
     }
 
     public double getVolumeOfInternetTraffic() {
@@ -42,12 +43,12 @@ public class CellularPlan extends Plan {
         this.volumeOfInternetTraffic = volumeOfInternetTraffic;
     }
 
-    public double getOutgoingInterntPrice() {
-        return outgoingInterntPrice;
+    public double getOutgoingInternetPrice() {
+        return outgoingInternetPrice;
     }
 
-    public void setOutgoingInterntPrice(double outgoingInterntPrice) {
-        this.outgoingInterntPrice = outgoingInterntPrice;
+    public void setOutgoingInternetPrice(double outgoingInternetPrice) {
+        this.outgoingInternetPrice = outgoingInternetPrice;
     }
 
     public double getMobileHotspot() {
@@ -74,6 +75,16 @@ public class CellularPlan extends Plan {
         this.sms = sms;
     }
 
-    private double sms;
-
+    @Override
+    public String toString() {
+        return  this.getName() +
+                "\nМинут на звонки " + minutesOnCall +
+                "\nСтоимость звонка " + outgoingCallsPrice +
+                "\nСтоимость роуминга " + roamingCallPrice +
+                "\nВключено интернет трафика " + volumeOfInternetTraffic +
+                "\nСтоимость звонка сверх трафика " + outgoingInternetPrice +
+                "\nИнтернета в режиме модема " + mobileHotspot +
+                "\nТрафика на мтс тв " + mtsTvTraffic +
+                "\nsms " + sms +"\n";
+    }
 }
