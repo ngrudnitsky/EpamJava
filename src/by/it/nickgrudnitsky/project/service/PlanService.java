@@ -10,6 +10,12 @@ import static by.it.nickgrudnitsky.project.service.Parser.readPlansFromFile;
 
 public class PlanService{
 
+    public static void main(String[] args) {
+        PlanService planService = new PlanService();
+        planService.readPlans(new File("src/by/it/nickgrudnitsky/project/resources/plansList.txt"));
+        System.out.println(planService.getAll());
+    }
+
     private PlanRepository planRepository = new PlanRepository();
 
     //Чтени входных данных из файла

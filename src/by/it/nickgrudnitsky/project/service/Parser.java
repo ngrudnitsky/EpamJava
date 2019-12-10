@@ -24,7 +24,7 @@ class Parser {
                     List<String> tariffInfo = new ArrayList<>();
                     String planName = in.readLine();
 
-                    if (planName.startsWith("Тариф Мобильный \"")) {
+                    if (planName.startsWith("Тариф Мобильный")) {
 
                         tariffInfo.add(planName);
 
@@ -40,6 +40,36 @@ class Parser {
 
                         tariffs.add(tariffInfo);
 
+                    } else if (planName.startsWith("Тариф Для Квартиры")){
+
+                        tariffInfo.add(planName);
+
+                        for (int i = 0; i < 8; i++) {
+
+                            if (in.ready()) {
+
+                                String[] split = in.readLine().split(" = ");
+                                tariffInfo.add(split[1]);
+
+                            }
+                        }
+
+                        tariffs.add(tariffInfo);
+                    } else if (planName.startsWith("Тариф Для Дома")){
+
+                        tariffInfo.add(planName);
+
+                        for (int i = 0; i < 9; i++) {
+
+                            if (in.ready()) {
+
+                                String[] split = in.readLine().split(" = ");
+                                tariffInfo.add(split[1]);
+
+                            }
+                        }
+
+                        tariffs.add(tariffInfo);
                     }
                 }
             } catch (IOException e) {

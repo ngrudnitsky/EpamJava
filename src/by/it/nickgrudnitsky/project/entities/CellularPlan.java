@@ -1,5 +1,7 @@
 package by.it.nickgrudnitsky.project.entities;
 
+import java.util.Objects;
+
 public class CellularPlan extends Plan {
 
     private int minutesOnCall;
@@ -69,15 +71,40 @@ public class CellularPlan extends Plan {
     @Override
     public String toString() {
         return this.getName() +
+                "\nВключено интернет трафика " + this.getVolumeOfInternetTraffic() +
+                "\nабонентская плата " + this.getSubscriptionFee() +
 //                "\nМинут на звонки " + minutesOnCall +
 //                "\nСтоимость звонка " + outgoingCallsPrice +
 //                "\nСтоимость роуминга " + roamingCallPrice +
-                "\nВключено интернет трафика " + this.getVolumeOfInternetTraffic() +
 //                "\nСтоимость звонка сверх трафика " + outgoingInternetPrice +
 //                "\nИнтернета в режиме модема " + mobileHotspot +
 //                "\nТрафика на мтс тв " + mtsTvTraffic +
 //                "\nsms " + sms +
-                "\nплата " + this.getSubscriptionFee()+ "\n";
+                "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CellularPlan that = (CellularPlan) o;
+        return minutesOnCall == that.minutesOnCall &&
+                Double.compare(that.outgoingCallsPrice, outgoingCallsPrice) == 0 &&
+                Double.compare(that.roamingCallPrice, roamingCallPrice) == 0 &&
+                Double.compare(that.outgoingInternetPrice, outgoingInternetPrice) == 0 &&
+                Double.compare(that.mobileHotspot, mobileHotspot) == 0 &&
+                Double.compare(that.mtsTvTraffic, mtsTvTraffic) == 0 &&
+                Double.compare(that.sms, sms) == 0 &&
+                this.getName().equals(that.getName()) &&
+                this.getVolumeOfInternetTraffic() == that.getVolumeOfInternetTraffic() &&
+                this.getSubscriptionFee() == that.getSubscriptionFee() &&
+                this.getConnectedSubscribers() == that.getConnectedSubscribers() &&
+                this.getConnectionPrice() == that.getConnectionPrice();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getConnectionPrice(), this.getConnectedSubscribers(), this.getSubscriptionFee(), this.getVolumeOfInternetTraffic(), this.getName(), minutesOnCall, outgoingCallsPrice, roamingCallPrice, outgoingInternetPrice, mobileHotspot, mtsTvTraffic, sms);
     }
 
     @Override

@@ -1,7 +1,9 @@
 package by.it.nickgrudnitsky.project.data;
 
+import by.it.nickgrudnitsky.project.entities.ApartmentPlan;
 import by.it.nickgrudnitsky.project.entities.CellularPlan;
 import by.it.nickgrudnitsky.project.entities.Plan;
+import by.it.nickgrudnitsky.project.entities.PrivateHousePlan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,17 @@ public class PlanRepository {
                 fillCellularPlan(cellularPlan, planInfo);
                 addPlan(cellularPlan);
 
+            } else if (tariffType.startsWith("Тариф Для Квартиры")) {
+
+                ApartmentPlan apartmentPlan = new ApartmentPlan();
+                fillApartmentPlan(apartmentPlan, planInfo);
+                addPlan(apartmentPlan);
+
+            } else if (tariffType.startsWith("Тариф Для Дома")){
+                PrivateHousePlan privateHousePlan = new PrivateHousePlan();
+                fillPrivateHousePlan(privateHousePlan, planInfo);
+                addPlan(privateHousePlan);
+
             }
         }
         return plans;
@@ -46,8 +59,32 @@ public class PlanRepository {
         cellularPlan.setSubscriptionFee(Double.valueOf(planInfo.get(9)));
         cellularPlan.setConnectionPrice(Double.valueOf(planInfo.get(10)));
         cellularPlan.setConnectedSubscribers(Integer.valueOf(planInfo.get(11)));
-
     }
+
+    private void fillApartmentPlan(ApartmentPlan apartmentPlan, List<String> planInfo){
+        apartmentPlan.setName(planInfo.get(0));
+        apartmentPlan.setVolumeOfInternetTraffic(Double.valueOf(planInfo.get(1)));
+        apartmentPlan.setSubscriptionFee(Double.valueOf(planInfo.get(2)));
+        apartmentPlan.setConnectionPrice(Double.valueOf(planInfo.get(3)));
+        apartmentPlan.setConnectedSubscribers(Integer.valueOf(planInfo.get(4)));
+        apartmentPlan.setDrWebAntivirus(Boolean.valueOf(planInfo.get(5)));
+        apartmentPlan.setWifiRouter(Boolean.valueOf(planInfo.get(6)));
+        apartmentPlan.setTv(Boolean.valueOf(planInfo.get(7)));
+        apartmentPlan.setAccessSpeed(Integer.valueOf(planInfo.get(8)));
+    }
+
+    private void fillPrivateHousePlan(PrivateHousePlan privateHousePlan, List<String> planInfo){
+        privateHousePlan.setName(planInfo.get(0));
+        privateHousePlan.setVolumeOfInternetTraffic(Double.valueOf(planInfo.get(1)));
+        privateHousePlan.setTrafficVolumeOn1MbeatSpeed(Double.valueOf(planInfo.get(2)));
+        privateHousePlan.setSubscriptionFee(Double.valueOf(planInfo.get(3)));
+        privateHousePlan.setConnectionPrice(Double.valueOf(planInfo.get(4)));
+        privateHousePlan.setConnectedSubscribers(Integer.valueOf(planInfo.get(5)));
+        privateHousePlan.setDrWebAntivirus(Boolean.valueOf(planInfo.get(6)));
+        privateHousePlan.setWifiRouter(Boolean.valueOf(planInfo.get(7)));
+        privateHousePlan.setTv(Boolean.valueOf(planInfo.get(8)));
+    }
+
 
     public List<Plan> getPlans() {
         return plans;
